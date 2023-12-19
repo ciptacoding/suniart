@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Customer\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,8 @@ Route::get('/', [HomeController::class, 'index'])->name('customer.home');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('store.register');
 
 Route::middleware(['admin', 'auth'])->group(function () {
    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
