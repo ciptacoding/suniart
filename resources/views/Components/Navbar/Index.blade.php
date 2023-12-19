@@ -14,19 +14,16 @@
                <div class="text-secondary d-none d-md-inline-block">
                   {{-- <span class="d-block" style="margin-bottom: -10px">{{ Auth::user()->username }}</span> --}}
                   <span class="d-block" style="margin-bottom: -10px">Winten</span>
-                  {{-- <span class="text-xs">{{ Auth::user()->role->nama }}</span> --}}
-                  <span class="text-xs">Administrator</span>
+                  <span class="text-xs">{{ Auth::user()->role->nama }}</span>
                </div>
                <div class="image">
-                  {{-- @if (Auth::user()->foto)
+                  @if (Auth::user()->foto)
                   <img src="{{ asset('storage/profiles/' . Auth::user()->foto) }}"
                      style="height: 32px; object-fit:cover" class="overflow-hidden rounded-lg" alt="user-image">
                   @else
                   <img src="{{ asset('img/person.png') }}" style="height: 32px; object-fit:cover"
                      class="overflow-hidden rounded-lg" alt="user-image">
-                  @endif --}}
-                  <img src="{{ asset('img/person.png') }}" style="height: 32px; object-fit:cover"
-                     class="overflow-hidden rounded-lg" alt="user-image">
+                  @endif
                </div>
             </div>
          </a>
@@ -39,15 +36,12 @@
                <span>Password</span>
             </a>
             <div class="dropdown-divider"></div>
-            {{-- <a href="{{ route('logout') }}" onclick="handleLogout()" class="dropdown-item">
+            <a href="{{ route('logout') }}" onclick="handleLogout()" class="dropdown-item">
                <span>Logout</span>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                @csrf
-            </form> --}}
-            <a href="#" class="dropdown-item">
-               <span>Logout</span>
-            </a>
+            </form>
          </div>
       </li>
 
