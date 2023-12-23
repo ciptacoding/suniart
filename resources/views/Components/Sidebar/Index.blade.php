@@ -23,7 +23,8 @@
                </a>
             </li>
             <li class="nav-item">
-               <a href="#" class="nav-link">
+               <a href="{{ route('admin.sejarah') }}"
+                  class="nav-link {{ Route::currentRouteName() === 'admin.sejarah' ? 'active' : ' '}}">
                   <i class="nav-icon fas fa-history"></i>
                   <p>
                      Sejarah Tari-tarian
