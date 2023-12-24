@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('whatsapp')->unique();
+            $table->string('jenis_kelamin');
             $table->string('foto')->nullable();
             $table->boolean('status');
             $table->timestamp('email_verified_at')->nullable();

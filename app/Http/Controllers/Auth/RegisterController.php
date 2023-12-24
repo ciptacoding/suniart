@@ -22,6 +22,7 @@ class RegisterController extends Controller
         $request->validate([
             'username' => 'required|string|max:250|unique:users,username',
             'whatsapp' => 'required|string|max:25|unique:users,whatsapp',
+            'jenis_kelamin' => 'required',
             'email' => 'required|email|max:250|unique:users,email',
             'password' => 'required|min:8|confirmed'
         ]);
@@ -32,6 +33,7 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'whatsapp' => $request->whatsapp,
+            'jenis_kelamin' => $request->jenis_kelamin,
             'foto' => null,
             'status' => true,
             'remember_token' => Str::random(10),

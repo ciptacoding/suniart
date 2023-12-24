@@ -12,8 +12,7 @@
          <a data-toggle="dropdown" href="#">
             <div class="user-panel d-flex align-items-center" style="padding-right: -18px;">
                <div class="text-secondary d-none d-md-inline-block">
-                  {{-- <span class="d-block" style="margin-bottom: -10px">{{ Auth::user()->username }}</span> --}}
-                  <span class="d-block" style="margin-bottom: -10px">Winten</span>
+                  <span class="d-block" style="margin-bottom: -10px">{{ Auth::user()->username }}</span>
                   <span class="text-xs">{{ Auth::user()->role->nama }}</span>
                </div>
                <div class="image">

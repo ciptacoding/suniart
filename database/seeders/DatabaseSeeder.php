@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'stikom@gmail.com',
             'password' => 'password', //password
             'whatsapp' => '085858038671',
+            'jenis_kelamin' => 'wanita',
             'status' => true,
             'foto' => null,
             'remember_token' => Str::random(10),

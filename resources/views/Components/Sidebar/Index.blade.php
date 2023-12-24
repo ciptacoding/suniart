@@ -32,7 +32,8 @@
                </a>
             </li>
             <li class="nav-item">
-               <a href="#" class="nav-link">
+               <a href="{{ route('admin.pelanggan') }}"
+                  class="nav-link {{ Route::currentRouteName() === 'admin.pelanggan' ? 'active' : ' '}}">
                   <i class="nav-icon fas fa-user-friends"></i>
                   <p>
                      Data Pelanggan

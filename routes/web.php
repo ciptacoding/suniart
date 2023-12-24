@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PelangganController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Customer\HomeController;
@@ -42,4 +43,10 @@ Route::middleware(['admin', 'auth'])->group(function () {
    Route::get('/edit-sejarah/{id}', [SejarahTariController::class, 'edit'])->name('admin.edit.sejarah');
    Route::put('/sejarah/{id}', [SejarahTariController::class, 'update'])->name('admin.update.sejarah');
    Route::delete('/sejarah/{id}', [SejarahTariController::class, 'delete'])->name('admin.delete.sejarah');
+
+   Route::get('/pelanggan', [PelangganController::class, 'index'])->name('admin.pelanggan');
+   Route::get('/pelanggan/{id}', [PelangganController::class, 'detail'])->name('admin.pelanggan.detail');
+   Route::patch('/pelanggan-aktif/{id}', [PelangganController::class, 'aktif'])->name('admin.pelanggan.aktif');
+   Route::patch('/pelanggan-nonaktif/{id}', [PelangganController::class, 'nonaktif'])->name('admin.pelanggan.nonaktif');
+   Route::get('/cetak-pelanggan/{id}', [PelangganController::class, 'download'])->name('admin.pelanggan.download');
 });

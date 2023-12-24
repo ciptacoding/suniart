@@ -14,7 +14,7 @@
          <form action="{{ route('store.register') }}" method="POST">
             @csrf
             <div class="input-group mb-3">
-               <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="username"
+               <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username"
                   name="username" value="{{ old('username') }}">
                <div class="input-group-append">
                   <div class="input-group-text">
@@ -40,8 +40,8 @@
             </div>
 
             <div class="input-group mb-3">
-               <input type="whatsapp" class="form-control @error('whatsapp') is-invalid @enderror"
-                  placeholder="whatsapp" name="whatsapp" value="{{ old('whatsapp') }}">
+               <input type="text" class="form-control @error('whatsapp') is-invalid @enderror" placeholder="Whatsapp"
+                  name="whatsapp" value="{{ old('whatsapp') }}">
                <div class="input-group-append">
                   <div class="input-group-text">
                      <span class="fab fa-whatsapp fa-lg"></span>
@@ -51,6 +51,18 @@
                <span class="invalid-feedback">{{ $message }}</span>
                @enderror
             </div>
+
+            <div class="form-group">
+               <select class="custom-select form-control @error('jenis_kelamin') is-invalid @enderror"
+                  name="jenis_kelamin">
+                  <option value="pria">Pria</option>
+                  <option value="wanita">Wanita</option>
+               </select>
+               @error('jenis_kelamin')
+               <span class="invalid-feedback">{{ $message }}</span>
+               @enderror
+            </div>
+
 
             <div class="input-group mb-3">
                <input type="password" class="form-control @error('password') is-invalid @enderror"
