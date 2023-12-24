@@ -2,7 +2,7 @@
 
 {{-- Add Button --}}
 @section('add-button')
-<a href="#"><button class="btn btn-primary rounded-lg">Tambah Sejarah</button></a>
+<a href="{{ route('admin.tambah.sejarah') }}"><button class="btn btn-primary rounded-lg">Tambah Sejarah</button></a>
 @endsection
 {{-- Add Button --}}
 
@@ -29,28 +29,28 @@
             </tr>
          </thead>
          <tbody>
+            @foreach ($modifiedData as $tari)
             <tr>
-               <td>Tari PendeT</td>
-               <td>Tari pendet merupakan warisan budaya Indonesia yang berasal dari pulau Bali
-                  yang diciptakan oleh
-                  seniman tari Bali, I
-                  Nyoman Kaler...</td>
-               <td class="d-flex justify-content-center">
-
-                  <button type="submit" class="btn-info rounded-lg mx-1">
+               <td>{{ $tari['nama'] }}</td>
+               <td>{{ $tari['truncatedDeskripsi'] }}</td>
+               <td class="text-center">
+                  <a href="{{ route('admin.detail.sejarah', $tari['id']) }}" class="btn btn-sm btn-info rounded-lg">
                      <i class="fas fa-info-circle" style="color: #ffffff;"></i>
-                  </button>
-                  <button type="submit" class="btn-warning rounded-lg mx-1">
+                  </a>
+                  <a href="{{ route('admin.edit.sejarah', $tari['id']) }}" class="btn btn-sm btn-warning rounded-lg">
                      <i class="fas fa-tools" style="color: #ffffff;"></i>
-                  </button>
-
-                  <button type="submit" class="btn-danger rounded-lg mx-1">
-                     <i class="fas fa-trash-alt" style="color: #ffffff;"></i>
-                  </button>
-
+                  </a>
+                  <form action="{{ route('admin.delete.sejarah', $tari['id']) }}" method="POST" class="d-inline">
+                     @method('DELETE')
+                     @csrf
+                     <button type="submit" class="btn btn-sm btn-danger btn-submit">
+                        <i class="fas fa-trash-alt"></i>
+                     </button>
+                  </form>
                </td>
 
             </tr>
+            @endforeach
          </tbody>
       </table>
    </div>
@@ -70,6 +70,25 @@
          "info": true,
          "autoWidth": true,
          "responsive": true,
+      });
+   });
+
+   $('.btn-submit').click(function (e) {
+      e.preventDefault();
+      const deleteForm = $(this).closest('form');
+      
+      Swal.fire({
+         title: "Are you sure?",
+         text: "You won't be able to revert this!",
+         icon: "warning",
+         showCancelButton: true,
+         confirmButtonColor: "#3085d6",
+         cancelButtonColor: "#d33",
+         confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+         if (result.isConfirmed) {
+            deleteForm.submit();
+         }
       });
    });
 </script>
