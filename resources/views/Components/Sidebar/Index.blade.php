@@ -41,7 +41,8 @@
                </a>
             </li>
             <li class="nav-item">
-               <a href="#" class="nav-link">
+               <a href="{{ route('admin.kategori') }}"
+                  class="nav-link {{ Route::currentRouteName() === 'admin.kategori' ? 'active' : ' '}}">
                   <i class="nav-icon fas fa-tags"></i>
                   <p>
                      Data Kategori

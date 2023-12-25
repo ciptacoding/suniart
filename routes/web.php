@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\PelangganController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Customer\HomeController;
+use App\Http\Controllers\Admin\KategoriController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PelangganController;
 use App\Http\Controllers\Admin\SejarahTariController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +50,13 @@ Route::middleware(['admin', 'auth'])->group(function () {
    Route::patch('/pelanggan-aktif/{id}', [PelangganController::class, 'aktif'])->name('admin.pelanggan.aktif');
    Route::patch('/pelanggan-nonaktif/{id}', [PelangganController::class, 'nonaktif'])->name('admin.pelanggan.nonaktif');
    Route::get('/cetak-pelanggan/{id}', [PelangganController::class, 'download'])->name('admin.pelanggan.download');
+
+   Route::get('/kategori', [KategoriController::class, 'index'])->name('admin.kategori');
+   Route::get('/tambah-kategori', [KategoriController::class, 'tambah'])->name('admin.kategori.tambah');
+   Route::post('/kategori', [KategoriController::class, 'simpan'])->name('admin.kategori.simpan');
+   Route::get('/detail-kategori/{id}', [KategoriController::class, 'detail'])->name('admin.kategori.detail');
+   Route::get('/edit-kategori/{id}', [KategoriController::class, 'edit'])->name('admin.kategori.edit');
+   Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('admin.kategori.update');
+   Route::delete('/kategori/{id}', [KategoriController::class, 'delete'])->name('admin.kategori.delete');
+   Route::get('/download-kategori/{id}', [KategoriController::class, 'download'])->name('admin.kategori.download');
 });
