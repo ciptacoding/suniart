@@ -17,7 +17,7 @@
 @section('admin-page')
 <div class="card card-default">
    <div class="card-header">
-      <h3 class="text-center mt-2">{{ $kategori['nama'] }}</h3>
+      <h3 class="text-center mt-2">{{ $kategori->nama }}</h3>
    </div>
    <!-- /.card-header -->
 

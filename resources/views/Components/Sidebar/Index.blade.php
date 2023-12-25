@@ -50,7 +50,8 @@
                </a>
             </li>
             <li class="nav-item">
-               <a href="#" class="nav-link">
+               <a href="{{ route('admin.produk') }}"
+                  class="nav-link {{ Route::currentRouteName() === 'admin.produk' ? 'active' : ' '}}">
                   <i class="nav-icon fas fa-shopping-cart"></i>
                   <p>
                      Data Produk

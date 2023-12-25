@@ -27,6 +27,9 @@
             </div>
          </a>
          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="/" class="dropdown-item">
+               <span>Homepage</span>
+            </a>
             <a href="#" class="dropdown-item">
                <span>Profile</span>
             </a>

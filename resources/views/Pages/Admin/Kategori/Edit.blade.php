@@ -2,14 +2,14 @@
 
 {{-- Add Button --}}
 @section('add-button')
-<h4>Tambah Kategori Produk</h4>
+<h4>Edit Kategori Produk</h4>
 @endsection
 {{-- Add Button --}}
 
 {{-- Breadcrumb --}}
 @section('breadcrumb')
 <li class="breadcrumb-item"><a href="{{ route('admin.kategori') }}">Kategori</a></li>
-<li class="breadcrumb-item active" aria-current="page">Tambah Kategori</li>
+<li class="breadcrumb-item active" aria-current="page">Edit Kategori</li>
 @endsection
 {{-- Breadcrumb --}}
 

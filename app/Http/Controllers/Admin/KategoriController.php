@@ -86,6 +86,6 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::findOrFail($id);
         $pdf = Pdf::loadView('Pages.Admin.Kategori.Cetak', compact('kategori'));
-        return $pdf->download('pelanggan.pdf');
+        return $pdf->download('kategori.pdf');
     }
 }

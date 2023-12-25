@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Customer\HomeController;
@@ -59,4 +60,13 @@ Route::middleware(['admin', 'auth'])->group(function () {
    Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('admin.kategori.update');
    Route::delete('/kategori/{id}', [KategoriController::class, 'delete'])->name('admin.kategori.delete');
    Route::get('/download-kategori/{id}', [KategoriController::class, 'download'])->name('admin.kategori.download');
+
+   Route::get('/produk', [ProdukController::class, 'index'])->name('admin.produk');
+   Route::get('/tambah-produk', [ProdukController::class, 'tambah'])->name('admin.produk.tambah');
+   Route::post('/produk', [ProdukController::class, 'simpan'])->name('admin.produk.simpan');
+   Route::get('/detail-produk/{id}', [ProdukController::class, 'detail'])->name('admin.produk.detail');
+   Route::get('/edit-produk/{id}', [ProdukController::class, 'edit'])->name('admin.produk.edit');
+   Route::put('/produk/{id}', [ProdukController::class, 'update'])->name('admin.produk.update');
+   Route::delete('/produk/{id}', [ProdukController::class, 'delete'])->name('admin.produk.delete');
+   Route::get('/download-produk/{id}', [ProdukController::class, 'download'])->name('admin.produk.download');
 });
