@@ -1,13 +1,15 @@
 <?php
 
+use App\Models\Penyewaan;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PelangganController;
+use App\Http\Controllers\Admin\PenyewaanController;
 use App\Http\Controllers\Admin\SejarahTariController;
 
 /*
@@ -69,4 +71,7 @@ Route::middleware(['admin', 'auth'])->group(function () {
    Route::put('/produk/{id}', [ProdukController::class, 'update'])->name('admin.produk.update');
    Route::delete('/produk/{id}', [ProdukController::class, 'delete'])->name('admin.produk.delete');
    Route::get('/download-produk/{id}', [ProdukController::class, 'download'])->name('admin.produk.download');
+
+   Route::get('/penyewaan', [PenyewaanController::class, 'index'])->name('admin.penyewaan');
+   Route::get('/penyewaan/{id}', [PenyewaanController::class, 'detail'])->name('admin.penyewaan.detail');
 });

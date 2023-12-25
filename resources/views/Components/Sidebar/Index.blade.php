@@ -59,7 +59,8 @@
                </a>
             </li>
             <li class="nav-item">
-               <a href="#" class="nav-link">
+               <a href="{{ route('admin.penyewaan') }}"
+                  class="nav-link {{ Route::currentRouteName() === 'admin.penyewaan' ? 'active' : ' '}}">
                   <i class="nav-icon fab fa-shopify"></i>
                   <p>
                      Data Penyewaan
