@@ -94,7 +94,7 @@
                <div class="form-group">
                   <label for="stok">Stok Produk</label>
                   <input type="number" class="form-control @error('stok') is-invalid @enderror" id="stok" name="stok"
-                     placeholder="Masukkan kode produk" value="{{ old('stok') }}">
+                     placeholder="Masukkan stok produk" value="{{ old('stok') }}">
                   @error('stok')
                   <div class="invalid-feedback">{{ $message }}</div>
                   @enderror

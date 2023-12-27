@@ -38,11 +38,15 @@
    <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-
+   <style>
+      .custom-background {
+         background-color: #eeeeee
+      }
+   </style>
    @stack('styles')
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed custom-background">
    <div class="wrapper">
 
       <!-- Preloader -->
@@ -62,13 +66,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                     <a class="nav-link" href="#">Produk <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Penyewaan</a>
+                     <a class="nav-link" href="/">Produk <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="#">Keranjang</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Penyewaan</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="#">Sejarah</a>
@@ -80,13 +84,14 @@
                <div class="dropdown my-2">
                   <a class="text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                      aria-expanded="false">
-                     Agus Widiatmika
+                     {{ Auth::user()->username }}
                   </a>
 
                   <div class="dropdown-menu">
-                     <a class="dropdown-item" href="#">Action</a>
-                     <a class="dropdown-item" href="#">Another action</a>
-                     <a class="dropdown-item" href="#">Something else here</a>
+                     <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                     <a class="dropdown-item" href="#">Profile</a>
+                     <a class="dropdown-item" href="#">Password</a>
+                     <a class="dropdown-item" href="#">Logout</a>
                   </div>
                </div>
                {{-- <form class="form-inline ">
