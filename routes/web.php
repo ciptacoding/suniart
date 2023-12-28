@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PelangganController;
 use App\Http\Controllers\Admin\PenyewaanController;
 use App\Http\Controllers\Admin\SejarahTariController;
+use App\Http\Controllers\Customer\CustomerProdukController;
+use App\Models\Produk;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,7 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('store.register');
+Route::get('/produk/{id}', [CustomerProdukController::class, 'detailProduk'])->name('customer.produk.detail');
 
 
 // Router Customer

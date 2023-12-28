@@ -66,7 +66,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                     <a class="nav-link" href="/">Produk <span class="sr-only">(current)</span></a>
+                     <a class="nav-link" href="/">Produk</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="#">Keranjang</a>
@@ -81,6 +81,8 @@
                      <a class="nav-link" href="#">About</a>
                   </li>
                </ul>
+
+               @auth
                <div class="dropdown my-2">
                   <a class="text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                      aria-expanded="false">
@@ -88,16 +90,30 @@
                   </a>
 
                   <div class="dropdown-menu">
+                     @if (Auth::user()->role_id === '1')
                      <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                     @endif
                      <a class="dropdown-item" href="#">Profile</a>
                      <a class="dropdown-item" href="#">Password</a>
-                     <a class="dropdown-item" href="#">Logout</a>
+                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="handleLogout()"
+                        class="dropdown-item">
+                        <span>Logout</span>
+                     </a>
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                     </form>
                   </div>
                </div>
-               {{-- <form class="form-inline ">
-                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-               </form> --}}
+               @else
+               <div>
+                  <a href="/login">
+                     <button class="btn btn-warning btn-sm">Login</button>
+                  </a>
+                  <a href="/register">
+                     <button class="btn btn-secondary btn-sm">Register</button>
+                  </a>
+               </div>
+               @endauth
             </div>
          </div>
       </nav>
@@ -111,6 +127,16 @@
 
    </div>
    <!-- ./wrapper -->
+
+   @push('scripts')
+   <script>
+      function handleLogout()
+         {
+            event.preventDefault();
+            document.getElementById('logout-form').submit();
+         }
+   </script>
+   @endpush
 
    <!-- jQuery -->
    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
